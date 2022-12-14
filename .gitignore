@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+Solpletter.antal.pdf
+Solpletter.antal.pdf
+Solpletter.ftt.pdf
+Solpletter.re-im.pdf
+*.pdf

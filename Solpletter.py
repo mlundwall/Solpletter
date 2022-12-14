@@ -38,7 +38,7 @@ fourier=fft(pletallep)[1:159]
 # Fra nr 1 til halvdelen (ialt er der = 319 i pletalle)
 # Nr 0 fjenes, da den er en konstant (=summen af alle)
 
-pyplot.figure(figsize=(20,10))
+pyplot.figure(figsize=(20, 10))
 pyplot.plot(fourier.real)
 pyplot.plot(fourier.imag)
 pyplot.title("real-imag")
