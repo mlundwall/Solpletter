@@ -58,7 +58,7 @@ pyplot.close() # I stedet for .show(), da vi kun vil gemme plottet, ikke vise de
 m      = max(res)          # Finder maksimum amplityde
 l      = len(pletallep)    # Længden af dataset
 
-f      = np.where(res==m)  # Finder frekvens for maksimum amplityde
+f      = np.where(res==m)  # Finder frekvens for maksimum amplitude
 p      = f[0][0] + 1       # f er frekvens med maks amplityde. Vi lægger en til, da der tælles fra 0
 periode= l/p               # Periode (i år) er den fulde længde i år divideret med frekvensen der har maks amplityde
 
