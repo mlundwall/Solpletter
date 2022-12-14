@@ -63,10 +63,10 @@ p      = f[0][0] + 1       # f er frekvens med maks amplityde. Vi lægger en til
 periode= l/p               # Periode (i år) er den fulde længde i år divideret med frekvensen der har maks amplityde
 
 print()
-print("Maximum periode={0:.2f} fundet i pos={1:d} af {2:d}".format(m,p,l))
-print("Periode={0:.2f}".format(periode))
+print("Maximum periode = {0:.2f} fundet i pos = {1:d} af {2:d}".format(m,p,l))
+print("Periode omregnet til år = {0:.2f}".format(periode))
 print()
 print("Grafer Solpletter*.pdf ")
 print("gemt i samme dir som kildefilen")
 
-readln()
+input("Tryk for at afslutte ...")
