@@ -2,7 +2,7 @@
 """
 Created on Fri Oct 18 12:31:25 2019
 
-@author: MLUC
+@author: Mads Lundwall
 """
 
 from ttestmodul import ztest, ttest

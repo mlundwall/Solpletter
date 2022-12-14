@@ -2,8 +2,7 @@
 """
 Solpletter Datafil
 
-Created on Wed Oct 16 11:26:54 2019
-@author: Mads Lundwall 2019
+@author: Mads Lundwall 2022
 """
 
 pletalle = [\

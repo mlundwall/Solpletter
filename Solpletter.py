@@ -3,8 +3,7 @@
 Solpletter kildekode
 Fourier-transformation
 
-Created on Wed Oct 16 11:26:54 2019
-@author: Mads Lundwall 2019
+@author: Mads Lundwall 2022
 """
 
 from matplotlib import pyplot
@@ -19,7 +18,7 @@ print()
 print("*-----------------------------------------------*")
 print("*      Solpletter, dominerende periode          *")
 print("*      Data fra 1700 til 2019                   *")
-print("*      Beregnet med fourrier-transformation     *")
+print("*      Beregnet med fourier-transformation      *")
 print("*-----------------------------------------------*")
 
 pletallep=[row[1] for row in pletalle]
@@ -69,3 +68,5 @@ print("Periode={0:.2f}".format(periode))
 print()
 print("Grafer Solpletter*.pdf ")
 print("gemt i samme dir som kildefilen")
+
+readln()
