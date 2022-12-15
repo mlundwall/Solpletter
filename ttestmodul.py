@@ -3,6 +3,7 @@
 Created on Fri Oct 18 12:56:36 2019
 
 @author: Mads Lundwall
+Test af t-test funktione
 """
 
 from scipy import stats as stats

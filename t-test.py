@@ -3,6 +3,7 @@
 Created on Fri Oct 18 12:31:25 2019
 
 @author: Mads Lundwall
+Test af t-test funktioner
 """
 
 from ttestmodul import ztest, ttest
