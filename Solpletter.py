@@ -27,9 +27,10 @@ class solpletter:
 
 		if kun128:
 			startår = "1892"
+			grafext = "_128"
 		else:
 			startår = "1700"
-
+			grafext = "_alle"
 		print()
 		print("*-----------------------------------------------*")
 		print("*      Solpletter, dominerende periode          *")
@@ -47,7 +48,7 @@ class solpletter:
 		pyplot.figure(figsize=(20,10))
 		pyplot.plot(pletallea,pletallep)
 		pyplot.title("Solpletter, antal "+startår+"-2019")
-		pyplot.savefig(fname="Solpletter.antal.pdf",orientation="landscape",)
+		pyplot.savefig(fname="Solpletter.antal"+grafext+".pdf",orientation="landscape",)
 		# Dette plot vises altid
 		pyplot.show()
 
@@ -61,7 +62,7 @@ class solpletter:
 		pyplot.plot(fourier.real)
 		pyplot.plot(fourier.imag)
 		pyplot.title("real-imag")
-		pyplot.savefig(fname="Solpletter.re-im.pdf",orientation="landscape",)
+		pyplot.savefig(fname="Solpletter.re-im"+grafext+".pdf",orientation="landscape",)
 		if not visalleplot:
 			pyplot.close() # I stedet for .show(), da vi kun vil gemme plottet, ikke vise det
 		else:
@@ -74,7 +75,7 @@ class solpletter:
 		pyplot.figure(figsize=(20,10))
 		pyplot.title("Abs(Fourier) uden nul \"frekvens\"")
 		pyplot.plot(res)
-		pyplot.savefig(fname="Solpletter.ftt.pdf",orientation="landscape",)
+		pyplot.savefig(fname="Solpletter.ftt"+grafext+".pdf",orientation="landscape",)
 		if not visalleplot:
 			pyplot.close() # I stedet for .show(), da vi kun vil gemme plottet, ikke vise det
 		else:
