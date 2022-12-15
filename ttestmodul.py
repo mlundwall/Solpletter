@@ -2,7 +2,7 @@
 """
 Created on Fri Oct 18 12:56:36 2019
 
-@author: MLUC
+@author: Mads Lundwall
 """
 
 from scipy import stats as stats
