@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Solpletter kildekode
-Fourier-transformation
+Finder den dominerende periode i solpletaktiviteten i en bestmemt periode
+Benytter Fast-fourier transformation (fft)
 
 @author: Mads Lundwall 2022
 """
@@ -12,13 +12,18 @@ import numpy as np
 from PletData import pletalle, plet128
 
 class solpletter:
-	startår = ""
-	m = 0
-	p = 0
-	l = 0
+	# Klasee, der laver beregningen
+	# Lokale, offentlige egenskaber :
+	m = 0	# Indeks med maksimal apmlitude
+	p = 0	# Frekvens med maksimal amplitude
+	l = 0	# Længden af datasæt
 
 	def findperiode(self, kun128 = True, visalleplot = False) -> int:
-		# kun120 - angiver om der kun skal hentes data fra 128 halvår - optimalt for fft
+		# Argumenter
+		#	kun120 - angiver om der kun skal hentes data fra 128 halvår - optimalt for fft
+		#	visalleplot - angiver alle plot vises på skærmen, eller blot gemmes som PDF
+		# Returnerer
+		#	Fremherskende perioden i år
 
 		if kun128:
 			startår = "1892"
@@ -33,8 +38,8 @@ class solpletter:
 		print("*-----------------------------------------------*")
 
 		if kun128:
-			pletallep = [row[1] for row in plet128]
-			pletallea = [row[0] for row in plet128]
+			pletallep = [row[1] for row in plet128] # Årstal
+			pletallea = [row[0] for row in plet128] # Antal pletter
 		else:
 			pletallep = [row[1] for row in pletalle]
 			pletallea = [row[0] for row in pletalle]
@@ -43,12 +48,14 @@ class solpletter:
 		pyplot.plot(pletallea,pletallep)
 		pyplot.title("Solpletter, antal "+startår+"-2019")
 		pyplot.savefig(fname="Solpletter.antal.pdf",orientation="landscape",)
-		# pyplot.close() # I stedet for .show(), da vi kun vil gemme plottet, ikke vise det
+		# Dette plot vises altid
 		pyplot.show()
 
+		# Selve FFT - transformationen :
 		fourier=fft(pletallep)[1:159] 
-		# Fra nr 1 til halvdelen (ialt er der = 319 i pletalle)
-		# Nr 0 fjenes, da den er en konstant (=summen af alle)
+		# FFT: Nr 0 fjenes, da den er en konstant (=summen af alle)
+		# Fra nr 1 til halvdelen (ialt er der = 319 ellers 128.
+		# Sat til maks, da FFT kun tager til slut på dataset)
 
 		pyplot.figure(figsize=(20, 10))
 		pyplot.plot(fourier.real)
@@ -60,6 +67,8 @@ class solpletter:
 		else:
 			pyplot.show()
 
+		# Vi tager absolut værdien = img^2+re^2 for at finde max amplitude
+		# Se tildeling til selv.m længere nede
 		res = abs(fourier)
 
 		pyplot.figure(figsize=(20,10))
