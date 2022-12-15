@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Solpletter Datafil
-
+Indeholder to dataset - 
+Det første fra 1700 til 2019
+Det andet tilpasset FFT med en to-potens data (128)
 @author: Mads Lundwall 2022
 """
 
