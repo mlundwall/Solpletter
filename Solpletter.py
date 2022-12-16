@@ -15,9 +15,10 @@ from PletData import pletalle, plet128
 class SolPletter:
     # Klasee, der laver beregningen
     # Lokale, offentlige egenskaber :
-    m = 0  # Indeks med maksimal amplitude
-    p = 0  # Frekvens med maksimal amplitude
-    l = 0  # Længden af datasæt
+    m = 0   # Indeks med maksimal amplitude
+    p = 0   # Frekvens med maksimal amplitude
+    l = 0   # Længden af datasæt
+    f0 = complex(0,0)  # Fasen - fourrier-transformationens 0-indeks
 
     def findperiode(self, kun128=True, visalleplot=False) -> int:
         # Argumenter
@@ -56,6 +57,7 @@ class SolPletter:
         # Selve FFT - transformationen :
         fou = fft(pletallep)
         fourier = fou[1:159]
+        self.f0 = fou[0]
         # FFT: Nr 0 fjernes, da den er en konstant (=summen af alle)
         # Fra nr 1 til halvdelen (ialt er der = 319 ellers 128.
         # Sat til maks, da FFT kun tager til slut på dataset)
@@ -96,12 +98,14 @@ plet = SolPletter()
 periode = plet.findperiode(True, False)
 print()
 print("128 målinger:")
+print("Fase = {0:.2f}".format(plet.f0))
 print("Maximum periode-amplitude = {0:.2f} fundet i pos = {1:d} af {2:d}".format(plet.m, plet.p, plet.l))
 print("Periode omregnet til år   = {0:.2f}".format(periode))
 
 periode = plet.findperiode(False, False)
 print()
 print("Alle målinger:")
+print("Fase = {0:.2f}".format(plet.f0))
 print("Maximum periode-amplitude = {0:.2f} fundet i pos = {1:d} af {2:d}".format(plet.m, plet.p, plet.l))
 print("Periode omregnet til år   = {0:.2f}".format(periode))
 
