@@ -55,7 +55,7 @@ class SolPletter:
 
         # Selve FFT - transformationen :
         fou = fft(pletallep)
-        fourier = [1:159]
+        fourier = fou[1:159]
         # FFT: Nr 0 fjernes, da den er en konstant (=summen af alle)
         # Fra nr 1 til halvdelen (ialt er der = 319 ellers 128.
         # Sat til maks, da FFT kun tager til slut på dataset)
