@@ -2,8 +2,8 @@
 """
 Solpletter Datafil
 Indeholder to dataset - 
-Det første fra 1700 til 2019
-Det andet tilpasset FFT med en to-potens data (128)
+Det første pletalle fra 1700 til 2019
+Det andet plet128 tilpasset FFT med en to-potens data
 @author: Mads Lundwall 2022
 """
 
