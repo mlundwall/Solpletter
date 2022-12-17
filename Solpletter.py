@@ -13,7 +13,7 @@ from PletData import pletalle, plet128
 
 
 class SolPletter:
-    # Klasee, der laver beregningen
+    # Klasse, der laver beregningen
     # Lokale, offentlige egenskaber :
     m = 0   # Indeks med maksimal amplitude
     p = 0   # Frekvens med maksimal amplitude
