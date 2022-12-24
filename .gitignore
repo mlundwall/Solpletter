@@ -363,3 +363,9 @@ MigrationBackup/
 FodyWeavers.xsd
 
 *.pdf
+/Solpletter.antal_128.pdf
+/Solpletter.antal_alle.pdf
+/Solpletter.ftt_128.pdf
+/Solpletter.ftt_alle.pdf
+/Solpletter.re-im_128.pdf
+/Solpletter.re-im_alle.pdf
