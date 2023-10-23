@@ -18,7 +18,7 @@ class SolPletter:
     m = 0   # Indeks med maksimal amplitude
     p = 0   # Frekvens med maksimal amplitude
     l = 0   # Længden af datasæt
-    f0 = complex(0,0)  # Fasen - fourrier-transformationens 0-indeks
+    f0 = complex(0, 0)  # Fasen - fourrier-transformationens 0-indeks
 
     def findperiode(self, kun128=True, visalleplot=False) -> int:
         # Argumenter

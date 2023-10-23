@@ -369,3 +369,6 @@ FodyWeavers.xsd
 /Solpletter.ftt_alle.pdf
 /Solpletter.re-im_128.pdf
 /Solpletter.re-im_alle.pdf
+.idea/misc.xml
+.idea/runConfigurations/Solpletter.xml
+*.iml
