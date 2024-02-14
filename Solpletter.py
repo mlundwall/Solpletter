@@ -5,7 +5,6 @@ Benytter Fast-fourier transformation (fft)
 
 @author: Mads Lundwall 2022
 """
-
 from matplotlib import pyplot
 from scipy.fftpack import fft
 import numpy as np
