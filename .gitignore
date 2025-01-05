@@ -372,3 +372,4 @@ FodyWeavers.xsd
 .idea/misc.xml
 .idea/runConfigurations/Solpletter.xml
 *.iml
+/env
