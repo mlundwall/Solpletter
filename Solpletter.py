@@ -5,7 +5,7 @@ Benytter Fast-fourier transformation (fft)
 
 @author: Mads Lundwall 2022
 """
-from matplotlib import pyplot
+from matplotlib import pyplot as plt
 from scipy.fftpack import fft
 import numpy as np
 from PletData import pletalle, plet128
@@ -37,7 +37,7 @@ class SolPletter:
         print()
         print("*-----------------------------------------------*")
         print("*      Solpletter, dominerende periode          *")
-        print("*      Data fra " + startår + " til 2019                   *")
+        print("*      Data fra " + startår + " til 2019        *")
         print("*      Beregnet med fourier-transformation      *")
         print("*-----------------------------------------------*")
 
@@ -48,12 +48,12 @@ class SolPletter:
             pletallep = [row[1] for row in pletalle]
             pletallea = [row[0] for row in pletalle]
 
-        pyplot.figure(figsize=(20, 10))
-        pyplot.plot(pletallea, pletallep)
-        pyplot.title("Solpletter, antal " + startår + "-2019")
-        pyplot.savefig(fname="Solpletter.antal" + grafext + ".pdf", orientation="landscape", )
+        plt.figure(figsize=(20, 10))
+        plt.plot(pletallea, pletallep)
+        plt.title("Solpletter, antal " + startår + "-2019")
+        plt.savefig(fname="Solpletter.antal" + grafext + ".pdf", orientation="landscape", )
         # Dette plot vises altid
-        pyplot.show()
+        plt.show()
 
         # Selve FFT - transformationen :
         fou = fft(pletallep)
@@ -63,28 +63,30 @@ class SolPletter:
         # Fra nr 1 til halvdelen (ialt er der = 319 ellers 128.
         # Sat til maks, da FFT kun tager til slut på dataset)
 
-        pyplot.figure(figsize=(20, 10))
-        pyplot.plot(fourier.real)
-        pyplot.plot(fourier.imag)
-        pyplot.title("real-imag")
-        pyplot.savefig(fname="Solpletter.re-im" + grafext + ".pdf", orientation="landscape", )
+        plt.figure(figsize=(20, 10))
+        plt.plot(fourier.real)
+        plt.plot(fourier.imag)
+        plt.title("real-imag")
+        plt.savefig(fname="Solpletter.re-im" + grafext + ".pdf", orientation="landscape", )
         if not visalleplot:
-            pyplot.close()  # I stedet for .show(), da vi kun vil gemme plottet, ikke vise det
+            plt.close()  # I stedet for .show(), da vi kun vil gemme plottet, ikke vise det
         else:
-            pyplot.show()
+            manager = plt.get_current_fig_manager()
+            manager.full_screen_toggle()
+            plt.show()
 
         # Vi tager absolut værdien = img^2+re^2 for at finde max amplitude
         # Se tildeling til selv.m længere nede
         res = abs(fourier)
 
-        pyplot.figure(figsize=(20, 10))
-        pyplot.title("Abs(Fourier) uden nul \"frekvens\"")
-        pyplot.plot(res)
-        pyplot.savefig(fname="Solpletter.ftt" + grafext + ".pdf", orientation="landscape", )
+        plt.figure(figsize=(20, 10))
+        plt.title("Abs(Fourier) uden nul \"frekvens\"")
+        plt.plot(res)
+        plt.savefig(fname="Solpletter.ftt" + grafext + ".pdf", orientation="landscape", )
         if not visalleplot:
-            pyplot.close()  # I stedet for .show(), da vi kun vil gemme plottet, ikke vise det
+            plt.close()  # I stedet for .show(), da vi kun vil gemme plottet, ikke vise det
         else:
-            pyplot.show()
+            plt.show()
 
         self.m = max(res)  # Finder maksimum amplitude
         self.l = len(pletallep)  # Længden af dataset
