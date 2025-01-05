@@ -17,14 +17,16 @@ class SolPletter:
     m = 0   # Indeks med maksimal amplitude
     p = 0   # Frekvens med maksimal amplitude
     l = 0   # Længden af datasæt
+    f = None
     f0 = complex(0, 0)  # Fasen - fourrier-transformationens 0-indeks
 
-    def findperiode(self, kun128=True, visalleplot=False) -> int:
+
+    def findperiode(self, kun128=True, visalleplot=False) -> float:
         # Argumenter
         # - kun120 - angiver om der kun skal hentes data fra 128 halvår - optimalt for fft
         # - visalleplot - angiver alle plot vises på skærmen, eller blot gemmes som PDF
         # Returnerer
-        # - Fremherskende perioden i år
+        # - Fremherskende periode i år
 
         if kun128:
             startår = "1892"
@@ -88,7 +90,7 @@ class SolPletter:
         self.l = len(pletallep)  # Længden af dataset
 
         self.f = np.where(res == self.m)  # Finder frekvens for maksimum amplitude
-        self.p = self.f[0][0] + 1  # f er frekvens med maks amplitude. Vi lægger en til, da der tælles fra 0
+        self.p = self.f[0][0] + 1  # F er frekvens med maks amplitude. Vi lægger en til, da der tælles fra 0
         return self.l / self.p  # Periode (i år) er den fulde længde i år divideret med frekvensen der har maks amplitude
 
 
