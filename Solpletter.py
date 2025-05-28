@@ -3,7 +3,7 @@
 Finder den dominerende periode i solpletaktiviteten i en bestemt periode
 Benytter Fast-fourier transformation (fft)
 
-@author: Mads Lundwall 2022
+@author: Mads Lundwall 2022-25
 """
 from matplotlib import pyplot as plt
 from scipy.fftpack import fft
@@ -29,7 +29,7 @@ class SolPletter:
         # - Fremherskende periode i år
 
         if kun128:
-            startår = "1892"
+            startår = "1897"
             grafext = "_128"
         else:
             startår = "1700"
@@ -37,7 +37,7 @@ class SolPletter:
         print()
         print("*-----------------------------------------------*")
         print("*      Solpletter, dominerende periode          *")
-        print("*      Data fra " + startår + " til 2019        *")
+        print("*      Data fra " + startår + " til 2024        *")
         print("*      Beregnet med fourier-transformation      *")
         print("*-----------------------------------------------*")
 
@@ -50,7 +50,7 @@ class SolPletter:
 
         plt.figure(figsize=(20, 10))
         plt.plot(pletallea, pletallep)
-        plt.title("Solpletter, antal " + startår + "-2019")
+        plt.title("Solpletter, antal " + startår + "-2024")
         plt.savefig(fname="Solpletter.antal" + grafext + ".pdf", orientation="landscape", )
         # Dette plot vises altid
         plt.show()
